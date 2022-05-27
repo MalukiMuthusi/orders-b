@@ -42,7 +42,7 @@ func main() {
 		Handler:      r,
 	}
 
-	// Run our server in a goroutine so that it doesn't block.
+	// Run the server in a goroutine so that it doesn't block.
 	go func() {
 
 		if err := srv.ListenAndServe(); err != nil {
@@ -86,6 +86,8 @@ func init() {
 	BindEnvs()
 
 	viper.SetDefault(utils.Port, "8080")
+	viper.SetDefault(utils.DbHost, "127.0.0.1")
+	viper.SetDefault(utils.DbHostedOnCloud, false)
 
 	CheckMustBeSetEnvs()
 }
@@ -95,11 +97,36 @@ func BindEnvs() {
 
 	viper.BindEnv(utils.Port, "PORT")
 
+	// postgres credentials
+	viper.BindEnv(utils.DbUser)
+	viper.BindEnv(utils.DbPwd)
+	viper.BindEnv(utils.DbPort)
+	viper.BindEnv(utils.DbName)
+	viper.BindEnv(utils.DbHost)
+	viper.BindEnv(utils.DbHostedOnCloud)
+	viper.BindEnv(utils.DbConnectionName)
+	viper.BindEnv(utils.DbTimeZone)
+
 }
 
 // CheckMustBeSetEnvs checks that the provided envs have been set. The application will not start if the envs provided here have not been set
 func CheckMustBeSetEnvs() {
 
+	// postgres credentials
+	EnvMustBeSet(utils.DbUser)
+	EnvMustBeSet(utils.DbPwd)
+	EnvMustBeSet(utils.DbPort)
+	EnvMustBeSet(utils.DbName)
+	EnvMustBeSet(utils.DbHostedOnCloud)
+	EnvMustBeSet(utils.DbConnectionName)
+	EnvMustBeSet(utils.DbTimeZone)
+
+}
+
+func EnvMustBeSet(key string) {
+	if !viper.IsSet(key) {
+		logger.Log.WithField(key, false).Fatal("not set")
+	}
 }
 
 // DebugPrintRoute prints the available endpoints
