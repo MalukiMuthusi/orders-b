@@ -22,3 +22,16 @@ type BasicError struct {
 type SaveResponse struct {
 	Status string `json:"status"`
 }
+
+// GetOrdersRequestQuery query parameters provided in the request for getting orders
+type GetOrdersRequestQuery struct {
+	Offset      int     `form:"offset" json:"offset"`
+	PageSize    int     `form:"page_size" json:"page_size"`
+	Country     string  `form:"country" json:"country"`
+	WeightLimit float32 `form:"weight_limit" json:"weight_limit"`
+}
+
+type GetOrdersResponse struct {
+	Orders []*Order `json:"orders"`
+	Offset int      `json:"offset"`
+}

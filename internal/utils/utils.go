@@ -18,6 +18,10 @@ var (
 	ErrPartialInsert = errors.New("not all records were inserted")
 )
 
+const (
+	PageSize = 100
+)
+
 // database config names
 const (
 	DbUser           = "DB_USER"

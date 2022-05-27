@@ -14,4 +14,7 @@ type Store interface {
 
 	// BatchSaveOrders saves a batch of orders
 	BatchSaveOrders(ctx context.Context, orders []*models.Order) error
+
+	// GetOrders returns a list of paginated orders
+	GetOrders(ctx context.Context, filters *models.GetOrdersRequestQuery) (*models.GetOrdersResponse, error)
 }
