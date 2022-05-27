@@ -11,6 +11,19 @@ func SetUpRouter(store store.Store, debugPrintRoute DebugPrintRouteFunc) *gin.En
 
 	r := gin.New()
 
+	// Save order
+	saveOrder := SaveOrder{
+		Store: store,
+	}
+
+	r.POST("saveorder", saveOrder.Handle)
+
+	// batch save orders
+	batchSaveOrders := BatchSaveOrders{
+		Store: store,
+	}
+	r.POST("batchsaveorders", batchSaveOrders.Handle)
+
 	// log the endpoints
 	gin.DebugPrintRouteFunc = debugPrintRoute
 

@@ -14,7 +14,8 @@ const (
 )
 
 var (
-	ErrInsertFailed = errors.New("failed to insert record to database")
+	ErrInsertFailed  = errors.New("failed to insert record to database")
+	ErrPartialInsert = errors.New("not all records were inserted")
 )
 
 // database config names
