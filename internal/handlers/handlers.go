@@ -11,6 +11,9 @@ func SetUpRouter(store store.Store, debugPrintRoute DebugPrintRouteFunc) *gin.En
 
 	r := gin.New()
 
+	// log the endpoints
+	gin.DebugPrintRouteFunc = debugPrintRoute
+
 	// Save order
 
 	saveOrder := SaveOrder{
@@ -49,9 +52,6 @@ func SetUpRouter(store store.Store, debugPrintRoute DebugPrintRouteFunc) *gin.En
 	}
 
 	r.GET("totalweight", totalWeight.Handle)
-
-	// log the endpoints
-	gin.DebugPrintRouteFunc = debugPrintRoute
 
 	return r
 
