@@ -9,9 +9,11 @@ const (
 
 // API  error codes
 const (
-	CodeInvalidRequestBody = "INVALID_REQUEST_BODY"
-	CodeFailedSaveOrder    = "FAILED_SAVE_ORDER"
-	CodeProvideCountry     = "PROVIDE_COUNTRY"
+	CodeInvalidRequestBody   = "INVALID_REQUEST_BODY"
+	CodeFailedSaveOrder      = "FAILED_SAVE_ORDER"
+	CodeProvideCountry       = "PROVIDE_COUNTRY"
+	CodeFailedGetTotalOrders = "FAILED_GET_TOTAL_ORDER"
+	CodeFailedGetTotalWeight = "FAILED_GET_TOTAL_WEIGHT"
 )
 
 var (

@@ -36,7 +36,7 @@ func (h TotalOrdersPerCountry) Handle(c *gin.Context) {
 
 	if err != nil {
 		basicError := models.BasicError{
-			Code:    "FAILED_GET_TOTAL_ORDER",
+			Code:    utils.CodeFailedGetTotalOrders,
 			Message: fmt.Sprintf("failed to get the total orders for %s", queryParameter.Country),
 		}
 
@@ -45,7 +45,7 @@ func (h TotalOrdersPerCountry) Handle(c *gin.Context) {
 	}
 
 	resp := struct {
-		Total *int64
+		Total *int64 `json:"total"`
 	}{
 		Total: total,
 	}

@@ -20,4 +20,7 @@ type Store interface {
 
 	// GetTotalOrdersPerCountry returns the total orders for the given country
 	GetTotalOrdersPerCountry(ctx context.Context, r *models.TotalOrdersCountryQuery) (*int64, error)
+
+	// TotalWeightCountry returns the sum of parcel_weight for the provided country
+	TotalWeightCountry(ctx context.Context, r *models.TotalWeightCountry) (*float32, error)
 }

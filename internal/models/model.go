@@ -40,3 +40,8 @@ type GetOrdersResponse struct {
 type TotalOrdersCountryQuery struct {
 	Country string `form:"country" json:"country"`
 }
+
+// TotalWeightCountry query parameters for getting order's total weight for a country
+type TotalWeightCountry struct {
+	Country string `form:"country" json:"country"`
+}

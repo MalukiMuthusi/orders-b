@@ -42,6 +42,14 @@ func SetUpRouter(store store.Store, debugPrintRoute DebugPrintRouteFunc) *gin.En
 
 	r.GET("totalorders", getTotalOrdersCountry.Handle)
 
+	// Get sum of parcel weight for a country
+
+	totalWeight := TotalWeightCountry{
+		Store: store,
+	}
+
+	r.GET("totalweight", totalWeight.Handle)
+
 	// log the endpoints
 	gin.DebugPrintRouteFunc = debugPrintRoute
 
