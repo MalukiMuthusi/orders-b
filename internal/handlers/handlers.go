@@ -34,6 +34,14 @@ func SetUpRouter(store store.Store, debugPrintRoute DebugPrintRouteFunc) *gin.En
 
 	r.GET("orders", getOrders.Handle)
 
+	// Get total orders for a given country
+
+	getTotalOrdersCountry := TotalOrdersPerCountry{
+		Store: store,
+	}
+
+	r.GET("totalorders", getTotalOrdersCountry.Handle)
+
 	// log the endpoints
 	gin.DebugPrintRouteFunc = debugPrintRoute
 

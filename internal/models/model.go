@@ -35,3 +35,8 @@ type GetOrdersResponse struct {
 	Orders []*Order `json:"orders"`
 	Offset int      `json:"offset"`
 }
+
+// TotalOrdersCountryQuery query parameters for the query to get total orders for a country
+type TotalOrdersCountryQuery struct {
+	Country string `form:"country" json:"country"`
+}

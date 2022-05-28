@@ -17,4 +17,7 @@ type Store interface {
 
 	// GetOrders returns a list of paginated orders
 	GetOrders(ctx context.Context, filters *models.GetOrdersRequestQuery) (*models.GetOrdersResponse, error)
+
+	// GetTotalOrdersPerCountry returns the total orders for the given country
+	GetTotalOrdersPerCountry(ctx context.Context, r *models.TotalOrdersCountryQuery) (*int64, error)
 }

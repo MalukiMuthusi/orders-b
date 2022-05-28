@@ -11,6 +11,7 @@ const (
 const (
 	CodeInvalidRequestBody = "INVALID_REQUEST_BODY"
 	CodeFailedSaveOrder    = "FAILED_SAVE_ORDER"
+	CodeProvideCountry     = "PROVIDE_COUNTRY"
 )
 
 var (
